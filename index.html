@@ -1,68 +1,42 @@
 <!doctype html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hello World</title>
+  <title>NASA - 오늘의 천문학 사진</title>
+  <meta name="description" content="NASA가 제공하는 오늘의 천문학 사진을 매일 만나보세요.">
   <meta name="google-adsense-account" content="ca-pub-8199843257992434">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8199843257992434"
      crossorigin="anonymous"></script>
   <link href='/style.css' rel='stylesheet'>
 </head>
 <body>
-  <h1>Hello, world!</h1>
 
-  <!-- AdSense Ad Unit -->
-  <ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-8199843257992434"
-     data-ad-slot="1234567890" 
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-  <script>
-       (adsbygoogle = window.adsbygoogle || []).push({});
-  </script>
-  <!-- NOTE: Remember to replace data-ad-slot="1234567890" with your actual ad slot ID from your AdSense account. -->
+  <header>
+    <h1>NASA: 오늘의 천문학 사진</h1>
+    <button id="theme-toggle">🌙</button>
+  </header>
 
-  <button id="theme-toggle">Toggle Theme</button>
-  <button onclick="console.log('hello');">Press me</button>
+  <main id="apod-container">
+    <p id="loading-message">사진을 불러오는 중입니다...</p>
+    <!-- APOD content will be injected here by JavaScript -->
+  </main>
 
-  <hr>
-
-  <h2>제휴 문의</h2>
-  <form action="https://formspree.io/f/mojerezn" method="POST">
-    <label for="email">이메일:</label>
-    <input type="email" id="email" name="email" required>
-    
-    <label for="message">문의 내용:</label>
-    <textarea id="message" name="message" required></textarea>
-    
-    <button type="submit">문의 제출</button>
-  </form>
-
-  <hr>
-
-  <h2>댓글</h2>
-  <div id="disqus_thread"></div>
-  <script>
-      /**
-      *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-      *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
-      /*
-      var disqus_config = function () {
-      this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-      this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-      };
-      */
-      (function() { // DON'T EDIT BELOW THIS LINE
-      var d = document, s = d.createElement('script');
-      s.src = 'https://practice-yt1wtnkpz3.disqus.com/embed.js';
-      s.setAttribute('data-timestamp', +new Date());
-      (d.head || d.body).appendChild(s);
-      })();
-  </script>
-  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <footer>
+    <p>Powered by NASA APOD API</p>
+    <!-- AdSense Ad Unit -->
+    <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-8199843257992434"
+       data-ad-slot="1234567890" 
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </footer>
 
   <script defer type="text/javascript" src="/main.js"></script>
+
 </body>
 </html>
