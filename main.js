@@ -79,8 +79,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     async function initTeachableMachine() {
         // IMPORTANT: Replace this with your actual Teachable Machine model URL
-        const modelURL = "https://teachablemachine.withgoogle.com/models/YOUR_MODEL_ID/model.json";
-        const metadataURL = "https://teachablemachine.withgoogle.com/models/YOUR_MODEL_ID/metadata.json";
+        const modelURL = "https://teachablemachine.withgoogle.com/models/oi0yvsIQu/model.json";
+        const metadataURL = "https://teachablemachine.withgoogle.com/models/oi0yvsIQu/metadata.json";
 
         try {
             analyzeButton.textContent = "모델 로딩 중...";
