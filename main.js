@@ -24,17 +24,13 @@ themeToggle.addEventListener('click', () => {
     }
 });
 
-// --- NASA APOD Fetch Logic & Teachable Machine Integration ---
+// --- NASA APOD Fetch Logic ---
 document.addEventListener('DOMContentLoaded', () => {
     const apiKey = 'DEMO_KEY'; // Using NASA's demo key
     const apiUrl = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}`;
     
     const apodContainer = document.getElementById('apod-container');
     const loadingMessage = document.getElementById('loading-message');
-
-    let model, labelContainer;
-    const analysisSection = document.getElementById('analysis-section');
-    const analyzeButton = document.getElementById('analyze-button');
 
     fetch(apiUrl)
         .then(response => response.json())
@@ -45,13 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const imageAltText = `NASA 오늘의 천문학 사진: ${data.title}`;
 
             if (data.media_type === 'image') {
-                // Use a proxy for the image to avoid CORS issues with Teachable Machine
-                const imageUrl = `https://images.weserv.nl/?url=${encodeURIComponent(data.hdurl)}`;
-                mediaElement = `<img src="${imageUrl}" alt="${imageAltText}" class="apod-image" crossorigin="anonymous">`;
-                
-                // Show and initialize the analysis section only for images
-                analysisSection.style.display = 'block';
-                initTeachableMachine();
+                mediaElement = `<img src="${data.hdurl}" alt="${imageAltText}" class="apod-image" crossorigin="anonymous">`;
             } else if (data.media_type === 'video') {
                 mediaElement = `<iframe src="${data.url}" title="${data.title}" frameborder="0" allowfullscreen class="apod-video"></iframe>`;
             }
@@ -76,43 +66,4 @@ document.addEventListener('DOMContentLoaded', () => {
             apodContainer.innerHTML = `<p style="text-align: center; color: red;">데이터를 불러오는 데 실패했습니다: ${error.message}</p>`;
             console.error('Error fetching APOD data:', error);
         });
-
-    async function initTeachableMachine() {
-        // IMPORTANT: Replace this with your actual Teachable Machine model URL
-        const modelURL = "https://teachablemachine.withgoogle.com/models/oi0yvsIQu/model.json";
-        const metadataURL = "https://teachablemachine.withgoogle.com/models/oi0yvsIQu/metadata.json";
-
-        try {
-            analyzeButton.textContent = "모델 로딩 중...";
-            model = await tmImage.load(modelURL, metadataURL);
-            labelContainer = document.getElementById("label-container");
-            
-            // Model loaded, enable the button
-            analyzeButton.disabled = false;
-            analyzeButton.textContent = "이 사진은 무엇일까요?";
-            analyzeButton.onclick = predict; // Assign predict function to button click
-        } catch (error) {
-            analyzeButton.textContent = "모델 로딩 실패";
-            console.error("Could not load Teachable Machine model:", error);
-        }
-    }
-
-    async function predict() {
-        analyzeButton.disabled = true;
-        analyzeButton.textContent = "분석 중...";
-
-        const apodImage = document.querySelector('.apod-image');
-        const prediction = await model.predict(apodImage);
-        
-        labelContainer.innerHTML = ""; // Clear previous results
-        prediction.forEach(p => {
-            const probability = (p.probability * 100).toFixed(1);
-            const classDiv = document.createElement("div");
-            classDiv.innerHTML = `${p.className}: ${probability}%`;
-            labelContainer.appendChild(classDiv);
-        });
-
-        analyzeButton.disabled = false;
-        analyzeButton.textContent = "다시 분석하기";
-    }
 });

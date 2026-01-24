@@ -29,16 +29,15 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8199843257992434"
      crossorigin="anonymous"></script>
 
-  <!-- Teachable Machine -->
-  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
-
   <link href='/style.css' rel='stylesheet'>
 </head>
 <body>
 
   <header>
-    <h1>NASA: 오늘의 천문학 사진</h1>
+    <nav>
+      <h1><a href="/">NASA: 오늘의 천문학 사진</a></h1>
+      <a href="/analyze.html">AI 분석 도구</a>
+    </nav>
     <button id="theme-toggle" aria-label="테마 전환">🌙</button>
   </header>
 
@@ -47,12 +46,6 @@
       <p id="loading-message">사진을 불러오는 중입니다...</p>
       <!-- Semantic APOD content will be injected here by JavaScript -->
     </article>
-    
-    <section id="analysis-section" style="display: none;">
-      <h3>AI 이미지 분석</h3>
-      <button id="analyze-button">이 사진은 무엇일까요?</button>
-      <div id="label-container"></div>
-    </section>
   </main>
   
   <footer>

@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI 이미지 분석 도구</title>
+
+  <meta name="description" content="이미지를 업로드하여 AI 모델로 어떤 종류의 이미지인지 분석해보세요.">
+
+  <!-- Teachable Machine -->
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
+
+  <link href='/style.css' rel='stylesheet'>
+</head>
+<body>
+
+  <header>
+    <nav>
+      <h1><a href="/">NASA: 오늘의 천문학 사진</a></h1>
+      <a href="/analyze.html">AI 분석 도구</a>
+    </nav>
+    <button id="theme-toggle" aria-label="테마 전환">🌙</button>
+  </header>
+
+  <main>
+    <section class="tool-container">
+        <h2>AI 이미지 분석기</h2>
+        <p>분석하고 싶은 이미지를 업로드하세요.</p>
+        
+        <input type="file" id="image-upload" accept="image/*" />
+        
+        <div id="image-preview-container" style="display: none;">
+            <img id="image-preview" src="#" alt="Image preview" />
+        </div>
+
+        <button id="analyze-button" disabled>분석하기</button>
+
+        <div id="label-container"></div>
+    </section>
+  </main>
+  
+  <footer>
+    <p>Powered by Teachable Machine</p>
+  </footer>
+
+  <script defer type="text/javascript" src="/analyze.js"></script>
+  <script defer type="text/javascript" src="/main.js"></script> <!-- For theme toggle -->
+
+</body>
+</html>

@@ -44,6 +44,29 @@ header h1 {
     margin: 0;
 }
 
+header nav {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+header nav a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 1rem;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+header nav a:hover {
+    color: #007bff;
+}
+
+header nav h1 a {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
 #theme-toggle {
     background: none;
     border: none;
@@ -51,7 +74,6 @@ header h1 {
     cursor: pointer;
     color: var(--text-color);
 }
-
 main {
     padding: 2rem;
     max-width: 800px;
@@ -130,42 +152,54 @@ footer {
         padding: 1rem;
     }
 
-    header h1 {
-        margin-bottom: 0.5rem;
+    header nav {
+        margin-bottom: 1rem;
     }
 
     main {
         padding: 1rem;
     }
-
-    .apod-content {
-        padding: 1rem 1.5rem;
-    }
-
-    .apod-content h2 {
-        font-size: 1.5rem;
-    }
 }
 
-/* Teachable Machine Analysis Section */
-#analysis-section {
+/* Styles for Analysis Tool Page */
+.tool-container {
     background: var(--card-bg);
     border-radius: 8px;
     box-shadow: var(--box-shadow);
-    margin-top: 2rem;
-    padding: 1.5rem 2rem;
+    padding: 2rem;
     text-align: center;
 }
 
-#analysis-section h3 {
+.tool-container h2 {
     margin-top: 0;
-    font-size: 1.5rem;
+    font-size: 2rem;
     border-bottom: 2px solid var(--border-color);
     padding-bottom: 0.5rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+#image-upload {
+    margin: 1rem 0;
+    display: block;
+    width: 100%;
+}
+
+#image-preview-container {
+    margin-top: 1rem;
+    max-width: 100%;
+    max-height: 400px;
+    border: 2px dashed var(--border-color);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+#image-preview {
+    max-width: 100%;
+    max-height: 400px;
 }
 
 #analyze-button {
+    margin-top: 1.5rem;
     background-color: #007bff;
     color: white;
     border: none;
@@ -190,4 +224,8 @@ footer {
     margin-top: 1.5rem;
     font-size: 1.2rem;
     line-height: 1.8;
+}
+
+#label-container .probability {
+    font-weight: bold;
 }
