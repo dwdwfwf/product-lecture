@@ -42,20 +42,27 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(data => {
             loadingMessage.style.display = 'none'; // Hide loading message
             
-            let mediaHtml = '';
+            let mediaElement = '';
+            const imageAltText = `NASA 오늘의 천문학 사진: ${data.title}`;
+
             if (data.media_type === 'image') {
-                mediaHtml = `<img src="${data.hdurl}" alt="${data.title}" class="apod-image">`;
+                mediaElement = `<img src="${data.hdurl}" alt="${imageAltText}" class="apod-image">`;
             } else if (data.media_type === 'video') {
-                mediaHtml = `<iframe src="${data.url}" frameborder="0" allowfullscreen class="apod-video"></iframe>`;
+                mediaElement = `<iframe src="${data.url}" title="${data.title}" frameborder="0" allowfullscreen class="apod-video"></iframe>`;
             }
 
             const contentHtml = `
-                ${mediaHtml}
-                <div class="apod-content">
-                    <h2>${data.title}</h2>
-                    <p class="date">${data.date}</p>
+                <figure>
+                    ${mediaElement}
+                    <figcaption>
+                        <h2>${data.title}</h2>
+                        <p class="date">${data.date}</p>
+                    </figcaption>
+                </figure>
+                <section class="apod-explanation">
+                    <h3>설명:</h3>
                     <p>${data.explanation}</p>
-                </div>
+                </section>
             `;
             
             apodContainer.innerHTML = contentHtml;

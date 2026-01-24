@@ -76,21 +76,37 @@ main {
     aspect-ratio: 16 / 9;
 }
 
-.apod-content {
-    padding: 1.5rem 2rem;
+#apod-container figure {
+    margin: 0;
 }
 
-.apod-content h2 {
+#apod-container figcaption {
+    padding: 1.5rem 2rem 1rem;
+    text-align: center;
+}
+
+#apod-container figcaption h2 {
     font-size: 2rem;
-    margin-top: 0;
+    margin: 0;
 }
 
-.apod-content .date {
+#apod-container figcaption .date {
     color: #888;
+    margin-top: 0.5rem;
+    display: block;
+}
+
+.apod-explanation {
+    padding: 0 2rem 1.5rem;
+}
+
+.apod-explanation h3 {
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 0.5rem;
     margin-bottom: 1rem;
 }
 
-.apod-content p {
+.apod-explanation p {
     text-align: justify;
 }
 

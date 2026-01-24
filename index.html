@@ -4,24 +4,47 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>NASA - 오늘의 천문학 사진</title>
-  <meta name="description" content="NASA가 제공하는 오늘의 천문학 사진을 매일 만나보세요.">
+
+  <!-- SEO & Basic Meta -->
+  <meta name="description" content="NASA가 제공하는 오늘의 천문학 사진을 매일 만나보세요. 우주와 천문학의 경이로움을 느껴보세요.">
+  <meta name="keywords" content="천문학, 우주, NASA, 오늘의 사진, APOD, 천체, 별, 행성">
+  <meta name="author" content="Your Name or Site Name">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://dwdwfwf.github.io/product-lecture/">
+  <meta property="og:title" content="NASA - 오늘의 천문학 사진">
+  <meta property="og:description" content="NASA가 제공하는 오늘의 천문학 사진을 매일 만나보세요.">
+  <meta property="og:image" content="https://dwdwfwf.github.io/product-lecture/og-image.jpg"> <!-- Add a default social image -->
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://dwdwfwf.github.io/product-lecture/">
+  <meta property="twitter:title" content="NASA - 오늘의 천문학 사진">
+  <meta property="twitter:description" content="NASA가 제공하는 오늘의 천문학 사진을 매일 만나보세요.">
+  <meta property="twitter:image" content="https://dwdwfwf.github.io/product-lecture/og-image.jpg"> <!-- Add a default social image -->
+
+  <!-- AdSense -->
   <meta name="google-adsense-account" content="ca-pub-8199843257992434">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8199843257992434"
      crossorigin="anonymous"></script>
+
   <link href='/style.css' rel='stylesheet'>
 </head>
 <body>
 
   <header>
     <h1>NASA: 오늘의 천문학 사진</h1>
-    <button id="theme-toggle">🌙</button>
+    <button id="theme-toggle" aria-label="테마 전환">🌙</button>
   </header>
 
-  <main id="apod-container">
-    <p id="loading-message">사진을 불러오는 중입니다...</p>
-    <!-- APOD content will be injected here by JavaScript -->
+  <main>
+    <article id="apod-container">
+      <p id="loading-message">사진을 불러오는 중입니다...</p>
+      <!-- Semantic APOD content will be injected here by JavaScript -->
+    </article>
   </main>
-
+  
   <footer>
     <p>Powered by NASA APOD API</p>
     <!-- AdSense Ad Unit -->
