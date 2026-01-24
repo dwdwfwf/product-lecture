@@ -4,12 +4,16 @@
   --text-color: #000000;
   --button-bg-color: #f0f0f0;
   --button-text-color: #000000;
+  --input-bg-color: #ffffff;
+  --input-border-color: #cccccc;
 }
 
 body {
   background-color: var(--background-color);
   color: var(--text-color);
   transition: background-color 0.3s, color 0.3s;
+  font-family: sans-serif;
+  margin: 20px;
 }
 
 body.dark-mode {
@@ -17,6 +21,8 @@ body.dark-mode {
   --text-color: #ffffff;
   --button-bg-color: #333333;
   --button-text-color: #ffffff;
+  --input-bg-color: #1e1e1e;
+  --input-border-color: #555555;
 }
 
 button {
@@ -25,4 +31,59 @@ button {
     border: 1px solid var(--text-color);
     padding: 8px 16px;
     cursor: pointer;
+    margin-right: 10px;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+form {
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid var(--input-border-color);
+    border-radius: 5px;
+    background-color: var(--background-color);
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+form input[type="email"],
+form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid var(--input-border-color);
+    border-radius: 4px;
+    background-color: var(--input-bg-color);
+    color: var(--text-color);
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+form input[type="email"]:focus,
+form textarea:focus {
+    border-color: #007bff; /* Highlight on focus */
+    outline: none;
+}
+
+form button[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+form button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+hr {
+    border-color: var(--text-color);
+    margin: 30px 0;
+    transition: border-color 0.3s;
 }
