@@ -146,3 +146,48 @@ footer {
         font-size: 1.5rem;
     }
 }
+
+/* Teachable Machine Analysis Section */
+#analysis-section {
+    background: var(--card-bg);
+    border-radius: 8px;
+    box-shadow: var(--box-shadow);
+    margin-top: 2rem;
+    padding: 1.5rem 2rem;
+    text-align: center;
+}
+
+#analysis-section h3 {
+    margin-top: 0;
+    font-size: 1.5rem;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+#analyze-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+#analyze-button:hover:not(:disabled) {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+#analyze-button:disabled {
+    background-color: #555;
+    cursor: not-allowed;
+}
+
+#label-container {
+    margin-top: 1.5rem;
+    font-size: 1.2rem;
+    line-height: 1.8;
+}
