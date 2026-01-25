@@ -1,68 +1,93 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NASA - 오늘의 천문학 사진</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MBTI 성격 유형 검사</title>
 
-  <!-- SEO & Basic Meta -->
-  <meta name="description" content="NASA가 제공하는 오늘의 천문학 사진을 매일 만나보세요. 우주와 천문학의 경이로움을 느껴보세요.">
-  <meta name="keywords" content="천문학, 우주, NASA, 오늘의 사진, APOD, 천체, 별, 행성">
-  <meta name="author" content="Your Name or Site Name">
+    <!-- SEO & Basic Meta -->
+    <meta name="description" content="간단한 MBTI 성격 유형 검사를 통해 당신의 성격을 알아보세요. 16가지 유형별 상세 정보와 궁합, 추천 직업을 확인하세요.">
+    <meta name="keywords" content="MBTI, 성격 유형 검사, 성격 테스트, 16가지 성격, 심리 테스트, 무료 MBTI, 자아 탐색">
+    <meta name="author" content="Your Name or Site Name">
 
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://dwdwfwf.github.io/product-lecture/">
-  <meta property="og:title" content="NASA - 오늘의 천문학 사진">
-  <meta property="og:description" content="NASA가 제공하는 오늘의 천문학 사진을 매일 만나보세요.">
-  <meta property="og:image" content="https://dwdwfwf.github.io/product-lecture/og-image.jpg"> <!-- Add a default social image -->
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="[Your Website URL]"> <!-- TODO: Update with actual URL -->
+    <meta property="og:title" content="MBTI 성격 유형 검사">
+    <meta property="og:description" content="간단한 MBTI 성격 유형 검사를 통해 당신의 성격을 알아보세요.">
+    <meta property="og:image" content="[Your Social Image URL]"> <!-- TODO: Update with actual image -->
 
-  <!-- Twitter -->
-  <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:url" content="https://dwdwfwf.github.io/product-lecture/">
-  <meta property="twitter:title" content="NASA - 오늘의 천문학 사진">
-  <meta property="twitter:description" content="NASA가 제공하는 오늘의 천문학 사진을 매일 만나보세요.">
-  <meta property="twitter:image" content="https://dwdwfwf.github.io/product-lecture/og-image.jpg"> <!-- Add a default social image -->
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="[Your Website URL]"> <!-- TODO: Update with actual URL -->
+    <meta property="twitter:title" content="MBTI 성격 유형 검사">
+    <meta property="twitter:description" content="간단한 MBTI 성격 유형 검사를 통해 당신의 성격을 알아보세요.">
+    <meta property="twitter:image" content="[Your Social Image URL]"> <!-- TODO: Update with actual image -->
 
-  <!-- AdSense -->
-  <meta name="google-adsense-account" content="ca-pub-8199843257992434">
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8199843257992434"
-     crossorigin="anonymous"></script>
+    <!-- AdSense -->
+    <meta name="google-adsense-account" content="ca-pub-8199843257992434">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8199843257992434"
+            crossorigin="anonymous"></script>
 
-  <link href='/style.css' rel='stylesheet'>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <header>
+        <div class="container">
+            <h1><a href="index.html">MBTI 성격 유형 검사</a></h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">검사하기</a></li>
+                    <li><a href="results/all_types.html">모든 유형 보기</a></li> <!-- This page will be created next -->
+                    <li><a href="pages/about.html">소개</a></li> <!-- This page will be created next -->
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-  <header>
-    <nav>
-      <h1><a href="/">NASA: 오늘의 천문학 사진</a></h1>
-      <a href="/analyze.html">AI 분석 도구</a>
-    </nav>
-    <button id="theme-toggle" aria-label="테마 전환">🌙</button>
-  </header>
+    <main>
+        <section class="quiz-section" id="intro-section">
+            <h2>나의 MBTI 성격 유형은?</h2>
+            <p>간단한 질문들을 통해 당신의 성격 유형을 알아보세요. MBTI 검사를 통해 자신을 더 깊이 이해하고, 다른 사람들과의 관계를 개선하는 데 도움을 받을 수 있습니다.</p>
+            <button class="start-button" id="start-quiz-button">검사 시작</button>
+        </section>
 
-  <main>
-    <article id="apod-container">
-      <p id="loading-message">사진을 불러오는 중입니다...</p>
-      <!-- Semantic APOD content will be injected here by JavaScript -->
-    </article>
-  </main>
-  
-  <footer>
-    <p>Powered by NASA APOD API</p>
-    <!-- AdSense Ad Unit -->
-    <ins class="adsbygoogle"
-       style="display:block"
-       data-ad-client="ca-pub-8199843257992434"
-       data-ad-slot="1234567890" 
-       data-ad-format="auto"
-       data-full-width-responsive="true"></ins>
-    <script>
-         (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-  </footer>
+        <section class="quiz-section" id="quiz-section" style="display: none;">
+            <div class="progress-bar">
+                <div class="progress" id="progress-bar-fill"></div>
+            </div>
+            <div class="question-container">
+                <p class="question-text" id="question-text"></p>
+                <div class="options-container" id="options-container">
+                    <!-- Options will be dynamically loaded here by JavaScript -->
+                </div>
+            </div>
+            <div class="navigation-buttons">
+                <button class="prev-button" id="prev-button" style="display: none;">이전</button>
+                <button class="next-button" id="next-button">다음</button>
+                <button class="submit-button" id="submit-button" style="display: none;">결과 보기</button>
+            </div>
+        </section>
+    </main>
 
-  <script defer type="text/javascript" src="/main.js"></script>
+    <footer>
+        <p>&copy; 2026 MBTI Personality Test. All rights reserved.</p>
+        <p>
+            <a href="pages/privacy.html">개인정보처리방침</a> |
+            <a href="pages/terms.html">이용약관</a>
+        </p>
+        <!-- AdSense Ad Unit -->
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-8199843257992434"
+             data-ad-slot="1234567890" <!-- It is important to set a valid ad slot ID in a production environment -->
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </footer>
 
+    <script defer src="main.js"></script>
 </body>
 </html>
