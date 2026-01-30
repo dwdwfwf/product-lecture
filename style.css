@@ -479,6 +479,52 @@ footer a:hover {
 .static-page p, .static-page li { font-size: 1rem; color: var(--text-muted); }
 .static-page ul { list-style-type: '→ '; padding-left: 1.5rem; }
 
+/* --- MBTI Type List Grid (All Types Page) --- */
+.mbti-type-list-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.type-item {
+    background-color: var(--background-color);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s ease;
+}
+
+.type-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--primary-color);
+}
+
+.type-item h3 {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 1.8rem;
+}
+
+.type-item h3 a {
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+.type-item h3 a:hover {
+    color: var(--primary-hover);
+    text-decoration: underline;
+}
+
+.type-item p {
+    color: var(--text-muted);
+    font-size: 1rem;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
 
 /* --- Responsive Design --- */
 @media (max-width: 768px) {
@@ -488,6 +534,9 @@ footer a:hover {
     #intro-section h2 { font-size: 2.25rem; }
     .pros-cons { grid-template-columns: 1fr; }
     .mbti-celebs ul, .mbti-jobs ul { columns: 1; }
+    .mbti-type-list-grid {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Smaller cards for small screens */
+    }
 }
 
 @media (max-width: 480px) {
@@ -497,4 +546,7 @@ footer a:hover {
     .start-button { padding: 0.8rem 2rem; font-size: 1.1rem; }
     .question-text { font-size: 1.25rem; }
     .options-container button { padding: 1rem; }
+    .mbti-type-list-grid {
+        grid-template-columns: 1fr; /* Single column on very small screens */
+    }
 }
