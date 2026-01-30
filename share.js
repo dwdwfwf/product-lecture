@@ -26,12 +26,14 @@ document.addEventListener('DOMContentLoaded', () => {
             const mbtiDescription = document.querySelector('.mbti-description')?.innerText;
             const mbtiImage = document.querySelector('.mbti-avatar')?.src;
             const pageUrl = window.location.href;
+            const fallbackImageUrl = "https://developers.kakao.com/assets/img/about/logos/kakaotalksharing/kakaotalk_sharing_btn_medium.png"; // User provided fallback image
 
             const shareData = {
                 objectType: 'feed',
                 content: {
                     title: `내 MBTI 결과는? ${mbtiType} ${mbtiName}`,
                     description: mbtiDescription,
+                    imageUrl: mbtiImage || fallbackImageUrl, // Use mbtiImage if available, otherwise fallback
                     link: {
                         mobileWebUrl: pageUrl,
                         webUrl: pageUrl,
