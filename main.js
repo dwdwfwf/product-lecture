@@ -202,7 +202,7 @@ document.addEventListener('DOMContentLoaded', () => {
     startQuizButton.addEventListener('click', () => {
         introSection.classList.add('fade-out');
 
-        introSection.addEventListener('animationend', () => {
+        setTimeout(() => {
             introSection.style.display = 'none';
             quizSection.style.display = 'block';
             quizSection.classList.add('fade-in');
@@ -210,7 +210,7 @@ document.addEventListener('DOMContentLoaded', () => {
             currentQuestionIndex = 0;
             userAnswers = Array(questions.length).fill(undefined);
             displayQuestion();
-        }, { once: true });
+        }, 500); // Match animation duration (0.5s)
     });
 
     prevButton.addEventListener('click', goToPrevQuestion);
