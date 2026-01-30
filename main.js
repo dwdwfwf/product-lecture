@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const nextButton = document.getElementById('next-button');
     const submitButton = document.getElementById('submit-button');
     const progressBarFill = document.getElementById('progress-bar-fill');
+    const loadingOverlay = document.getElementById('loading-overlay'); // Get loading overlay
 
     let currentQuestionIndex = 0;
     let userAnswers = []; // Stores the index of the selected option for each question
@@ -193,9 +194,14 @@ document.addEventListener('DOMContentLoaded', () => {
             alert("마지막 질문에 답변해주세요!");
             return;
         }
-        const mbti = calculateMBTI();
-        // Redirect to the specific MBTI result page
-        window.location.href = `results/${mbti.toLowerCase()}.html`;
+
+        loadingOverlay.style.display = 'flex'; // Show loading overlay
+        
+        setTimeout(() => {
+            const mbti = calculateMBTI();
+            // Redirect to the specific MBTI result page
+            window.location.href = `results/${mbti.toLowerCase()}.html`;
+        }, 1500); // Show loading for 1.5 seconds
     }
 
     // Event Listeners
