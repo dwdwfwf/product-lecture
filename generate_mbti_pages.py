@@ -691,6 +691,17 @@ def generate_mbti_page(mbti_type, data):
     <!-- Custom Share Script -->
     <script src="../share.js"></script>
     <script defer src="../scripts/ui.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {{
+            const urlParams = new URLSearchParams(window.location.search);
+            const fromQuiz = urlParams.get('fromQuiz');
+            const retakeQuizContainer = document.querySelector('.retake-quiz-container');
+
+            if (retakeQuizContainer && fromQuiz !== 'true') {{
+                retakeQuizContainer.style.display = 'none';
+            }}
+        }});
+    </script>
 </body>
 </html>
 """

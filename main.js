@@ -200,7 +200,7 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => {
             const mbti = calculateMBTI();
             // Redirect to the specific MBTI result page
-            window.location.href = `results/${mbti.toLowerCase()}.html`;
+            window.location.href = `results/${mbti.toLowerCase()}.html?fromQuiz=true`;
         }, 1500); // Show loading for 1.5 seconds
     }
 
