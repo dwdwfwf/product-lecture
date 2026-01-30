@@ -9,22 +9,29 @@ def clean_html(raw_html):
     return html.unescape(cleantext)
 
 # Helper function to wrap compatibility types in links
-def create_compatibility_links(types_str):
+def create_compatibility_links(types_str, current_mbti_type):
     if not types_str:
         return ""
     
     # Split by comma and space, then filter out empty strings
     types = [t.strip() for t in re.split(r'[,\s]+', types_str) if t.strip()]
     
-    links = []
+    links_html = []
     for t in types:
         # Ensure the type is a valid 4-letter MBTI code before creating a link
         if len(t) == 4 and t.upper() in mbti_data:
-            links.append(f'<a href="{t.lower()}.html" class="type-link">{t}</a>')
+            target_name = mbti_data[t.upper()]['name']
+            links_html.append(f'<a href="{t.lower()}.html" class="type-link">{t} ({target_name})</a>')
         else:
-            links.append(t) # Append as plain text if not a valid type
+            links_html.append(t) # Append as plain text if not a valid type
             
-    return ', '.join(links)
+    # Add a suggestion to view another type's details, linking to a random type
+    # For simplicity, let's link to the first compatible type found, or a generic link
+    if links_html and len(types) > 0 and types[0].upper() in mbti_data:
+        first_compatible_type_code = types[0].lower()
+        first_compatible_type_name = mbti_data[types[0].upper()]['name']
+        return f'{", ".join(links_html)} <p class="view-more-comp-link"><a href="{first_compatible_type_code}.html">👉 당신과 환상의 궁합인 {first_compatible_type_name} 유형 특징 보기</a></p>'
+    return ', '.join(links_html)
 
 mbti_data = {
     "INTJ": {
@@ -110,7 +117,7 @@ mbti_data = {
         "compatibility_good": "INFP, INTP",
         "compatibility_good_desc": "ENTJ의 비전을 이해하고 지지하며, 감성적이고 창의적인 아이디어를 제공하여 균형을 맞춰줍니다.",
         "compatibility_so_so": "INFJ, ENFJ, INTJ, ENTP, ISTP, ESTP",
-        "compatibility_so_so_desc": "유사한 목표 지향적인 성향을 공유하거나 서로에게 새로운 관점을 제시할 수 있습니다.",
+        "compatibility_so_so_desc": "유사한 목표 지향적인 성향을 공유하거나 서로에게 새로운 관점을 제시할 수 입니다.",
         "compatibility_bad": "ISFJ, ESFJ, ISTJ, ESTJ",
         "compatibility_bad_desc": "전통을 중시하고 변화를 꺼리는 이들 유형은 ENTJ의 혁신적이고 추진력 있는 성향과 갈등할 수 있습니다.",
         "celebrities": [
@@ -165,7 +172,7 @@ mbti_data = {
         "cons": [
             "과도한 이상주의: 현실과 타협하는 것을 어려워하며, 때로는 비현실적일 수 있습니다.",
             "상처받기 쉬움: 비판에 민감하고 쉽게 상처받는 경향이 있습니다.",
-            "고립감: 자신의 깊은 생각과 감정을 이해해 주는 사람을 찾기 어려워 외로움을 느낄 수 있습니다.",
+            "고립감: 자신의 깊은 생각과 감정을 이해해 주는 사람을 찾기 어려워 외로움을 느낄 수 입니다.",
             "지나친 완벽주의: 스스로에게 너무 높은 기준을 적용하고 자책하기 쉽습니다.",
             "번아웃: 타인을 돕는 데 에너지를 너무 많이 소모하여 지치기 쉽습니다."
         ],
@@ -227,7 +234,7 @@ mbti_data = {
         "cons": [
             "산만함: 한 가지 일에 꾸준히 집중하기 어려워 쉽게 질려 합니다.",
             "비체계적: 계획성이 부족하고 즉흥적으로 행동하는 경향이 있습니다.",
-            "과도한 감정 표현: 자신의 감정을 솔직하게 표현하지만, 때로는 과할 수 있습니다.",
+            "과도한 감정 표현: 자신의 감정을 솔직하게 표현하지만, 때로는 과할 수 입니다.",
             "지나친 낙천주의: 현실적인 문제를 간과하고 비현실적인 기대를 할 수 있습니다.",
             "결정의 어려움: 여러 가지 가능성 중에서 하나를 선택하는 데 어려움을 느낄 수 있습니다."
         ],
@@ -260,7 +267,8 @@ mbti_data = {
             "융통성 부족: 규칙과 원칙을 너무 중요하게 생각하여 융통성이 부족할 수 있습니다.",
             "감정 표현 어려움: 자신의 감정을 잘 표현하지 못하고 타인의 감정을 이해하는 데 어려움을 느낄 수 있습니다.",
             "비판적: 타인의 실수나 비효율적인 행동에 대해 비판적일 수 있습니다.",
-            "지나친 완벽주의: 스스로에게 너무 높은 기준을 적용하고 자책하기 쉽습니다."
+            "지나친 완벽주의: 스스로에게 너무 높은 기준을 적용하고 자책하기 쉽습니다.",
+            "번아웃: 타인을 돕는 데 에너지를 너무 많이 소모하여 지치기 쉽습니다."
         ],
         "compatibility_good": "ESFP, ESTP",
         "compatibility_good_desc": "ISTJ의 진지함을 이해하고, 밝고 긍정적인 에너지로 ISTJ에게 활력을 불어넣어 줍니다.",
@@ -291,14 +299,14 @@ mbti_data = {
             "갈등 회피: 갈등 상황을 싫어하여 자신의 의견을 제대로 표현하지 못할 수 있습니다.",
             "변화에 대한 저항: 새로운 아이디어나 변화를 받아들이는 데 어려움을 느낄 수 있습니다.",
             "자기희생: 타인을 돕기 위해 자신을 희생하는 경향이 있습니다.",
-            "스트레스에 취약: 타인의 어려움이나 부정적인 감정에 쉽게 영향을 받고 스트레스를 받을 수 있습니다."
+            "스트레스에 취약: 타인의 어려움이나 부정적인 감정에 쉽게 영향을 받고 스트레스를 받을 수 입니다."
         ],
         "compatibility_good": "ESTP, ESFP",
         "compatibility_good_desc": "ISFJ의 따뜻함과 헌신을 이해하고, 밝고 긍정적인 에너지로 ISFJ에게 활력을 불어넣어 줍니다.",
         "compatibility_so_so": "ISTP, ISFP, ENTJ, ENFJ, ESTJ, ISTJ",
         "compatibility_so_so_desc": "유사한 책임감을 공유하거나 서로의 부족한 부분을 보완해 줄 수 있습니다.",
         "compatibility_bad": "INFP, ENFP, INFJ, ENTP",
-        "compatibility_bad_desc": "이상주의적이고 즉흥적인 이들 유형은 ISFJ의 현실적이고 계획적인 성향을 이해하기 어려울 수 있습니다.",
+        "compatibility_bad_desc": "이상주의적이고 즉흥적인 이들 유형은 ISFJ의 현실적이고 계획적인 성향을 이해하기 어려울 수 입니다.",
         "celebrities": [
             "엘리자베스 2세", "셀레나 고메즈", "비욘세", "캡틴 아메리카 (가상)", "닥터 왓슨 (가상)"
         ],
@@ -376,13 +384,13 @@ mbti_data = {
             "실용적: 현실적인 관점에서 문제를 바라보고 효율적인 해결책을 찾습니다.",
             "뛰어난 문제 해결 능력: 복잡한 문제를 논리적으로 분석하고 해결하는 데 능합니다.",
             "적응력: 어떤 상황에도 빠르게 적응하고 유연하게 대처합니다.",
-            "독립적: 스스로 판단하고 결정하며, 타인의 간섭을 싫어합니다.",
+            "독립적: 스스로 생각하고 결정하며, 타인의 간섭을 싫어합니다.",
             "호기심: 새로운 기술과 경험에 대한 탐구심이 강합니다."
         ],
         "cons": [
             "감정 표현 어려움: 자신의 감정을 잘 표현하지 못하고 타인의 감정을 이해하는 데 어려움을 느낄 수 있습니다.",
             "무관심: 흥미 없는 일에는 무관심하고 집중하지 못하는 경향이 있습니다.",
-            "충동적: 즉흥적이고 충동적으로 행동하여 후회할 수 있습니다.",
+            "충동적: 즉흥적이고 충동적으로 행동하여 후회할 수 입니다.",
             "규칙 무시: 규칙이나 원칙에 얽매이는 것을 싫어하여 무시하는 경향이 있습니다.",
             "갈등 회피: 갈등 상황을 싫어하여 자신의 의견을 제대로 표현하지 못할 수 있습니다."
         ],
@@ -415,7 +423,7 @@ mbti_data = {
             "계획성 부족: 계획성이 부족하고 즉흥적으로 행동하는 경향이 있습니다.",
             "갈등 회피: 갈등 상황을 싫어하여 자신의 의견을 제대로 표현하지 못할 수 있습니다.",
             "지나친 겸손: 자신의 능력이나 성과를 과소평가하는 경향이 있습니다.",
-            "스트레스에 취약: 타인의 어려움이나 부정적인 감정에 쉽게 영향을 받고 스트레스를 받을 수 있습니다."
+            "스트레스에 취약: 타인의 어려움이나 부정적인 감정에 쉽게 영향을 받고 스트레스를 받을 수 입니다."
         ],
         "compatibility_good": "ESFJ, ESTJ",
         "compatibility_good_desc": "ISFP의 따뜻함과 예술적 감각을 이해하고, 안정적이고 체계적인 방식으로 ISFP에게 현실적인 조언을 줍니다.",
@@ -515,7 +523,7 @@ mbti_data = {
         "compatibility_so_so": "INFP, ENFP, INFJ, INTJ, INTP, ENTP",
         "compatibility_so_so_desc": "유사한 가치관이나 사고방식을 공유하여 편안함을 느끼지만, 때로는 서로의 단점을 보완해주지 못할 수도 있습니다.",
         "compatibility_bad": "ISTJ, ESTJ, ISFJ, ESFJ",
-        "compatibility_bad_desc": "현실적이고 실용적인 이들 유형은 INFP의 이상주의적인 면을 이해하기 어려워하며, 가치관의 차이로 인해 갈등이 발생할 수 있습니다.",
+        "compatibility_bad_desc": "현실적이고 실용적인 이들 유형은 INFP의 이상주의적인 면을 이해하기 어려워하며, 가치관의 차이로 인해 갈등이 발생할 수 입니다.",
         "celebrities": [
             "윌리엄 셰익스피어", "J.R.R. 톨킨", "조니 뎁", "아이유", "톰 히들스턴"
         ],
@@ -628,17 +636,17 @@ def generate_mbti_page(mbti_type, data):
             <div class="compatibility-grid">
                 <div class="type-card good">
                     <h4>최고의 궁합</h4>
-                    <p class="comp-types">{create_compatibility_links(data['compatibility_good'])}</p>
+                    <p class="comp-types">{create_compatibility_links(data['compatibility_good'], mbti_type)}</p>
                     <p>{data['compatibility_good_desc']}</p>
                 </div>
                 <div class="type-card so-so">
                     <h4>나쁘지 않은 궁합</h4>
-                    <p class="comp-types">{create_compatibility_links(data['compatibility_so_so'])}</p>
+                    <p class="comp-types">{create_compatibility_links(data['compatibility_so_so'], mbti_type)}</p>
                     <p>{data['compatibility_so_so_desc']}</p>
                 </div>
                 <div class="type-card bad">
                     <h4>최악의 궁합</h4>
-                    <p class="comp-types">{create_compatibility_links(data['compatibility_bad'])}</p>
+                    <p class="comp-types">{create_compatibility_links(data['compatibility_bad'], mbti_type)}</p>
                     <p>{data['compatibility_bad_desc']}</p>
                 </div>
             </div>
@@ -667,6 +675,9 @@ def generate_mbti_page(mbti_type, data):
                 <button id="copy-url-btn" class="share-btn url-copy">
                     🔗 URL 복사
                 </button>
+            </div>
+            <div class="retake-quiz-container">
+                <button class="start-button" onclick="location.href='../index.html'">✨ 검사 다시 하기</button>
             </div>
         </section>
     </main>
