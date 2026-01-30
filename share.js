@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // --- 중요 ---
         // ※ 실제 배포 시, 본인의 카카오 개발자 앱 키를 입력해야 합니다. ※
         // ※ This is a placeholder key. You must use your own Kakao developer app key for production. ※
-        const KAKAO_APP_KEY = 'YOUR_KAKAO_JAVASCRIPT_KEY'; // 여기에 실제 키를 입력하세요.
+        const KAKAO_APP_KEY = '6e2ffc8b4e5748eb04db8f93a2063e98'; // 여기에 실제 키를 입력하세요.
         
         if (KAKAO_APP_KEY === 'YOUR_KAKAO_JAVASCRIPT_KEY') {
             console.warn('Kakao SDK가 초기화되지 않았습니다. 실제 앱 키를 입력해주세요.');
