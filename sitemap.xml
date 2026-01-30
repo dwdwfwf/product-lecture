@@ -1,127 +1,133 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://dwdwfwf.github.io/product-lecture/index.html</loc>
+    <loc>/index.html</loc>
     <lastmod>2026-01-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://dwdwfwf.github.io/product-lecture/results/all_types.html</loc>
+    <loc>/results/all_types.html</loc>
     <lastmod>2026-01-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://dwdwfwf.github.io/product-lecture/pages/privacy.html</loc>
+    <loc>/pages/privacy.html</loc>
     <lastmod>2026-01-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://dwdwfwf.github.io/product-lecture/pages/terms.html</loc>
+    <loc>/pages/terms.html</loc>
     <lastmod>2026-01-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://dwdwfwf.github.io/product-lecture/pages/about.html</loc>
+    <loc>/pages/about.html</loc>
     <lastmod>2026-01-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://dwdwfwf.github.io/product-lecture/results/intj.html</loc>
+    <loc>/pages/contact.html</loc>
+    <lastmod>2026-01-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>/results/intj.html</loc>
     <lastmod>2026-01-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://dwdwfwf.github.io/product-lecture/results/intp.html</loc>
+    <loc>/results/intp.html</loc>
     <lastmod>2026-01-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://dwdwfwf.github.io/product-lecture/results/entj.html</loc>
+    <loc>/results/entj.html</loc>
     <lastmod>2026-01-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://dwdwfwf.github.io/product-lecture/results/entp.html</loc>
+    <loc>/results/entp.html</loc>
     <lastmod>2026-01-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://dwdwfwf.github.io/product-lecture/results/infj.html</loc>
+    <loc>/results/infj.html</loc>
     <lastmod>2026-01-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://dwdwfwf.github.io/product-lecture/results/infp.html</loc>
+    <loc>/results/infp.html</loc>
     <lastmod>2026-01-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://dwdwfwf.github.io/product-lecture/results/enfj.html</loc>
+    <loc>/results/enfj.html</loc>
     <lastmod>2026-01-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://dwdwfwf.github.io/product-lecture/results/enfp.html</loc>
+    <loc>/results/enfp.html</loc>
     <lastmod>2026-01-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://dwdwfwf.github.io/product-lecture/results/istj.html</loc>
+    <loc>/results/istj.html</loc>
     <lastmod>2026-01-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://dwdwfwf.github.io/product-lecture/results/isfj.html</loc>
+    <loc>/results/isfj.html</loc>
     <lastmod>2026-01-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://dwdwfwf.github.io/product-lecture/results/estj.html</loc>
+    <loc>/results/estj.html</loc>
     <lastmod>2026-01-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://dwdwfwf.github.io/product-lecture/results/esfj.html</loc>
+    <loc>/results/esfj.html</loc>
     <lastmod>2026-01-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://dwdwfwf.github.io/product-lecture/results/istp.html</loc>
+    <loc>/results/istp.html</loc>
     <lastmod>2026-01-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://dwdwfwf.github.io/product-lecture/results/isfp.html</loc>
+    <loc>/results/isfp.html</loc>
     <lastmod>2026-01-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://dwdwfwf.github.io/product-lecture/results/estp.html</loc>
+    <loc>/results/estp.html</loc>
     <lastmod>2026-01-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://dwdwfwf.github.io/product-lecture/results/esfp.html</loc>
+    <loc>/results/esfp.html</loc>
     <lastmod>2026-01-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>

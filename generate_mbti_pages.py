@@ -941,6 +941,22 @@ def generate_mbti_page(mbti_type, data):
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MBTI 유형: {mbti_type} - {data['name']}</title>
+    <meta http-equiv="content-language" content="ko">
+    <meta name="description" content="MBTI 성격 유형 {mbti_type}({data['name']})의 특징, 장단점, 궁합, 추천 직업, 유명인 등 상세 정보를 확인해보세요.">
+    <meta name="keywords" content="MBTI, {mbti_type}, {data['name']}, 성격 유형, 성격 테스트, MBTI 검사">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="MBTI 유형: {mbti_type} - {data['name']}">
+    <meta property="og:description" content="{data['description']}">
+    <meta property="og:image" content="{data['image']}">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="MBTI 유형: {mbti_type} - {data['name']}">
+    <meta property="twitter:description" content="{data['description']}">
+    <meta property="twitter:image" content="{data['image']}">
+
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
@@ -949,8 +965,9 @@ def generate_mbti_page(mbti_type, data):
         <nav>
             <ul>
                 <li><a href="../index.html">검사하기</a></li>
-                <li><a href="#types">모든 유형 보기</a></li>
-                <li><a href="#about">소개</a></li>
+                <li><a href="../results/all_types.html">모든 유형 보기</a></li>
+                <li><a href="../pages/about.html">소개</a></li>
+                <li><a href="../pages/contact.html">문의하기</a></li>
             </ul>
         </nav>
     </header>
@@ -1016,7 +1033,7 @@ def generate_mbti_page(mbti_type, data):
     </main>
     <footer>
         <p>&copy; 2026 MBTI Personality Test. All rights reserved.</p>
-        <p><a href="#privacy">개인정보처리방침</a> | <a href="#terms">이용약관</a></p>
+        <p><a href="../pages/privacy.html">개인정보처리방침</a> | <a href="../pages/terms.html">이용약관</a></p>
     </footer>
 </body>
 </html>
