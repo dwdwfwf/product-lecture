@@ -644,6 +644,7 @@ def generate_mbti_page(mbti_type, data):
     <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.0/kakao.min.js"></script>
     <!-- Custom Share Script -->
     <script src="../share.js"></script>
+    <script defer src="../scripts/ui.js"></script>
 </body>
 </html>
 """

@@ -80,6 +80,22 @@ header {
     position: sticky;
     top: 0;
     z-index: 1000;
+    transition: padding 0.3s ease, box-shadow 0.3s ease;
+}
+
+header.scrolled {
+    padding: 0.5rem 0;
+    box-shadow: var(--shadow-md);
+}
+
+header.scrolled h1 {
+    font-size: 1.5rem;
+    transition: font-size 0.3s ease;
+}
+
+header.scrolled nav a {
+    font-size: 0.95rem;
+    transition: font-size 0.3s ease;
 }
 
 header .container {
@@ -487,6 +503,11 @@ footer a:hover {
     margin-top: 2rem;
 }
 
+.type-item-link {
+    text-decoration: none;
+    color: inherit;
+}
+
 .type-item {
     background-color: var(--background-color);
     border: 1px solid var(--border-color);
@@ -507,16 +528,8 @@ footer a:hover {
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
     font-size: 1.8rem;
-}
-
-.type-item h3 a {
     color: var(--primary-color);
     font-weight: 700;
-}
-
-.type-item h3 a:hover {
-    color: var(--primary-hover);
-    text-decoration: underline;
 }
 
 .type-item p {
