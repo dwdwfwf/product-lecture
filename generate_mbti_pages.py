@@ -592,7 +592,6 @@ def generate_mbti_page(mbti_type, data):
                     <li><a href="../index.html">검사하기</a></li>
                     <li><a href="../results/all_types.html">모든 유형 보기</a></li>
                     <li><a href="../pages/about.html">소개</a></li>
-                    <li><a href="../pages/contact.html">문의하기</a></li>
                 </ul>
             </nav>
         </div>
@@ -673,7 +672,7 @@ def generate_mbti_page(mbti_type, data):
     </main>
     <footer>
         <p>&copy; 2026 MBTI Personality Test. All rights reserved.</p>
-        <p><a href="../pages/privacy.html">개인정보처리방침</a> | <a href="../pages/terms.html">이용약관</a></p>
+        <p><a href="../pages/contact.html">문의하기</a> | <a href="../pages/privacy.html">개인정보처리방침</a> | <a href="../pages/terms.html">이용약관</a></p>
     </footer>
     
     <!-- Kakao SDK -->
