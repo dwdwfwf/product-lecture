@@ -359,7 +359,7 @@ footer a:hover {
     padding-top: 1rem;
 }
 
-.mbti-details h3, .mbti-compatibility h3, .mbti-celebs h3, .mbti-jobs h3 {
+.mbti-details h3, .mbti-compatibility h3, .mbti-celebs h3, .mbti-jobs h3, .share-result h3 {
     font-size: 1.5rem;
     color: var(--text-color);
     border-bottom: 2px solid var(--primary-color);
@@ -374,17 +374,33 @@ footer a:hover {
 .pros h4 { color: var(--success-color); }
 .cons h4 { color: var(--danger-color); }
 .pros ul, .cons ul { list-style: none; padding: 0; margin: 0; }
-.pros li, .cons li { margin-bottom: 0.5rem; padding-left: 1.75rem; position: relative; }
-.pros li::before { content: '✓'; position: absolute; left: 0; color: var(--success-color); font-weight: 700; }
-.cons li::before { content: '✗'; position: absolute; left: 0; color: var(--danger-color); font-weight: 700; }
+.pros li, .cons li { margin-bottom: 0.5rem; }
+.pros li strong, .cons li strong { color: var(--text-color); }
 
-.compatibility-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; }
+
+.compatibility-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; }
 .type-card { background-color: var(--container-bg); border-radius: 8px; padding: 1.5rem; text-align: center; border: 1px solid var(--border-color); }
 .type-card h4 { font-size: 1.1rem; margin-bottom: 0.5rem; }
+.type-card p { font-size: 0.95rem; color: var(--text-muted); line-height: 1.5; }
+.type-card .comp-types { margin-bottom: 1rem; font-weight: 500; }
+.type-card .comp-types .type-link {
+    display: inline-block;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    padding: 0.2rem 0.6rem;
+    border-radius: 6px;
+    margin: 0 0.2rem;
+    font-size: 0.9rem;
+    transition: background-color 0.2s, color 0.2s;
+}
+.type-card .comp-types .type-link:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
 .type-card.good h4 { color: var(--success-color); }
 .type-card.so-so h4 { color: #f2a617; }
 .type-card.bad h4 { color: var(--danger-color); }
-.type-card p { font-size: 0.95rem; color: var(--text-muted); }
 
 .mbti-celebs ul, .mbti-jobs ul {
     list-style: none;
@@ -396,9 +412,67 @@ footer a:hover {
     padding: 0.5rem;
     border-radius: 6px;
     transition: background-color 0.2s ease;
+    color: var(--text-muted);
 }
 .mbti-celebs li:hover, .mbti-jobs li:hover {
     background-color: var(--secondary-color);
+    color: var(--text-color);
+}
+
+/* --- Share Section --- */
+.share-result {
+    margin-top: 3rem;
+    padding: 2rem;
+    background-color: var(--container-bg);
+    border-radius: 12px;
+    text-align: center;
+}
+
+.share-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.share-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    gap: 0.5rem;
+}
+
+.share-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.share-btn.kakao {
+    background-color: #FEE500;
+    color: #191919;
+}
+.share-btn.kakao img {
+    width: 24px;
+    height: 24px;
+}
+
+.share-btn.url-copy {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+}
+.share-btn.url-copy:disabled {
+    background-color: var(--success-color);
+    color: white;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
 }
 
 .static-page h3 { font-size: 1.5rem; color: var(--primary-color); border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem; }
