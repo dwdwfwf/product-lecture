@@ -200,11 +200,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Event Listeners
     startQuizButton.addEventListener('click', () => {
-        introSection.style.display = 'none';
-        quizSection.style.display = 'block';
-        currentQuestionIndex = 0;
-        userAnswers = Array(questions.length).fill(undefined);
-        displayQuestion();
+        introSection.classList.add('fade-out');
+
+        introSection.addEventListener('animationend', () => {
+            introSection.style.display = 'none';
+            quizSection.style.display = 'block';
+            quizSection.classList.add('fade-in');
+            
+            currentQuestionIndex = 0;
+            userAnswers = Array(questions.length).fill(undefined);
+            displayQuestion();
+        }, { once: true });
     });
 
     prevButton.addEventListener('click', goToPrevQuestion);
