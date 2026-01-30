@@ -1,5 +1,12 @@
 import os
 import re
+import html
+
+def clean_html(raw_html):
+    """Remove HTML tags from a string."""
+    cleanr = re.compile('<.*?>')
+    cleantext = re.sub(cleanr, '', raw_html)
+    return html.unescape(cleantext)
 
 # Helper function to wrap compatibility types in links
 def create_compatibility_links(types_str):
@@ -523,29 +530,58 @@ def generate_mbti_page(mbti_type, data):
     # This function is now defined at the top level
     # so it can be used inside generate_mbti_page
     
+    clean_description = clean_html(data['description'])
+    page_url = f"https://product-lecture.pages.dev/results/{mbti_type.lower()}.html"
+    
     template = f"""<!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MBTI 유형: {mbti_type} - {data['name']}</title>
+    <link rel="canonical" href="{page_url}">
     <meta http-equiv="content-language" content="ko">
     <meta name="description" content="MBTI 성격 유형 {mbti_type}({data['name']})의 특징, 장단점, 궁합, 추천 직업, 유명인 등 상세 정보를 확인해보세요.">
     <meta name="keywords" content="MBTI, {mbti_type}, {data['name']}, 성격 유형, 성격 테스트, MBTI 검사">
     
     <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="{page_url}">
     <meta property="og:title" content="MBTI 유형: {mbti_type} - {data['name']}">
-    <meta property="og:description" content="{data['description']}">
+    <meta property="og:description" content="{clean_description}">
     <meta property="og:image" content="{data['image']}">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="{page_url}">
     <meta property="twitter:title" content="MBTI 유형: {mbti_type} - {data['name']}">
-    <meta property="twitter:description" content="{data['description']}">
+    <meta property="twitter:description" content="{clean_description}">
     <meta property="twitter:image" content="{data['image']}">
 
     <link rel="stylesheet" href="../style.css">
+
+    <script type="application/ld+json">
+    {{
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "MBTI 유형: {mbti_type} - {data['name']}",
+      "image": "{data['image']}",
+      "author": {{
+        "@type": "Organization",
+        "name": "MBTI 성격 유형 검사"
+      }},
+      "publisher": {{
+        "@type": "Organization",
+        "name": "MBTI 성격 유형 검사",
+        "logo": {{
+          "@type": "ImageObject",
+          "url": "https://product-lecture.pages.dev/assets/logo.png"
+        }}
+      }},
+      "url": "{page_url}",
+      "description": "{clean_description}"
+    }}
+    </script>
 </head>
 <body>
     <header>
@@ -564,7 +600,7 @@ def generate_mbti_page(mbti_type, data):
     <main class="result-page">
         <section class="mbti-type-intro">
             <h2>{mbti_type}: {data['name']}</h2>
-            <img src="{data['image']}" alt="{mbti_type} ({data['name']})" class="mbti-avatar">
+            <img src="{data['image']}" alt="{mbti_type} ({data['name']})" class="mbti-avatar" loading="lazy">
             <p class="mbti-description">
                 {data['description']}
             </p>
