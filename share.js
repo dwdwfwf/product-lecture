@@ -32,7 +32,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 content: {
                     title: `내 MBTI 결과는? ${mbtiType} ${mbtiName}`,
                     description: mbtiDescription,
-                    imageUrl: mbtiImage,
                     link: {
                         mobileWebUrl: pageUrl,
                         webUrl: pageUrl,
