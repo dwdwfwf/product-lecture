@@ -72,8 +72,13 @@
                     <li><a href="../index.html">검사하기</a></li>
                     <li><a href="../results/all_types.html">모든 유형 보기</a></li>
                     <li><a href="../pages/about.html">소개</a></li>
+                    <li><a href="../pages/mbti_basics.html">MBTI 기본</a></li>
                 </ul>
             </nav>
+            <div class="search-bar">
+                <input type="text" id="search-input" placeholder="성격 유형 검색...">
+                <button id="search-button">검색</button>
+            </div>
         </div>
     </header>
     <main class="result-page">
@@ -194,7 +199,6 @@
         </section>
     </main>
     <footer>
-        <p>&copy; 2026 MBTI Personality Test. All rights reserved.</p>
         <p>
             <a href="../pages/contact.html">문의하기</a> |
             <a href="../pages/privacy.html">개인정보처리방침</a> |
@@ -208,6 +212,7 @@
     <!-- Custom Share Script -->
     <script src="../share.js"></script>
     <script defer src="../scripts/ui.js"></script>
+    <button id="back-to-top" title="위로 가기">↑</button>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const urlParams = new URLSearchParams(window.location.search);
