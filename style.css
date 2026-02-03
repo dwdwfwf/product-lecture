@@ -531,6 +531,36 @@ footer a:hover {
     box-shadow: none;
 }
 
+/* AddToAny button styling */
+.a2a_kit {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.a2a_kit a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px; /* Adjust size as needed */
+    height: 40px; /* Adjust size as needed */
+    border-radius: 50%;
+    background-color: #eee; /* Default background */
+    transition: all 0.2s ease;
+    box-shadow: var(--shadow-sm);
+}
+
+.a2a_kit a:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+/* Example: Customize specific buttons */
+.a2a_button_facebook { background-color: #3b5998; }
+.a2a_button_twitter { background-color: #1da1f2; }
+.a2a_button_email { background-color: #f6a623; } /* Example color */
+
+
 /* Back to Top Button */
 #back-to-top {
     display: none; /* Hidden by default */
